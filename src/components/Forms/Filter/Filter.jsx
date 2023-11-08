@@ -3,7 +3,7 @@ import { getFilter } from 'components/Redux/Selectors';
 import { useDispatch, useSelector } from 'react-redux';
 
 export const Filter = () => {
-  const { filter } = useSelector(getFilter);
+  const filter = useSelector(getFilter);
   const dispatch = useDispatch();
 
   const handleChangeFilter = ({ target: { value } }) => {

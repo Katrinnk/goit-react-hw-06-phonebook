@@ -1,4 +1,4 @@
-import { createContactAction } from 'components/Redux/Contacts/ContactsSlice';
+import { createContact } from 'components/Redux/Contacts/ContactsSlice';
 import { getContacts } from 'components/Redux/Selectors';
 import { Notify } from 'notiflix';
 import { useState } from 'react';
@@ -8,7 +8,7 @@ export const CreateContact = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  const { contacts } = useSelector(getContacts);
+  const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
 
   const handleChange = ({ target: { name, value } }) => {
@@ -25,7 +25,7 @@ export const CreateContact = () => {
       el => el.name.toLowerCase() === name.toLowerCase()
     );
     if (isAlreadyExist) return Notify.failure(`${name} is already in contacts`);
-    dispatch(createContactAction({ name, number }));
+    dispatch(createContact({ name, number }));
     setName('');
     setNumber('');
   };

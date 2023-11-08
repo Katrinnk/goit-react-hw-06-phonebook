@@ -3,10 +3,10 @@ import { createSlice } from '@reduxjs/toolkit';
 export const contactsSlice = createSlice({
   name: 'contacts',
   initialState: {
-    contacts: [],
+    items: [],
   },
   reducers: {
-    createContactAction: {
+    createContact: {
       prepare: data => {
         return {
           payload: {
@@ -16,14 +16,14 @@ export const contactsSlice = createSlice({
         };
       },
       reducer: (state, { payload }) => {
-        state.contacts.push(payload);
+        state.items.push(payload);
       },
     },
     deleteContact: (state, { payload }) => {
-      state.contacts = state.contacts.filter(el => el.id !== payload);
+      state.items = state.items.filter(el => el.id !== payload);
     },
   },
 });
 
 export const contactsReducer = contactsSlice.reducer;
-export const { createContactAction, deleteContact } = contactsSlice.actions;
+export const { createContact, deleteContact } = contactsSlice.actions;

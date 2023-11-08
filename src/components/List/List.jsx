@@ -3,8 +3,8 @@ import { getContacts, getFilter } from 'components/Redux/Selectors';
 import { useDispatch, useSelector } from 'react-redux';
 
 export const ContactList = () => {
-  const { contacts } = useSelector(getContacts);
-  const { filter } = useSelector(getFilter);
+  const contacts = useSelector(getContacts);
+  const filter = useSelector(getFilter);
   const dispatch = useDispatch();
 
   const handleDelete = id => {
